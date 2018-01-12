@@ -1,4 +1,9 @@
-# Solidity Examples
+# Solidity Smart Contract Examples
+
+##First steps
+Make sure you have [geth](https://www.ethereum.org/cli) and the [Solidity Compiler](http://solidity.readthedocs.io/en/develop/installing-solidity.html#binary-packages) installed in your computer. We are going to be using the geth console, so get familiar with it :)
+
+PS: all the commands in the repository were executed and tested in a Ubuntu 16.04 "xenial".
 
 Before geth 1.6, a Solidity file could be compiled from within geth. The file had to be prepared and newlines had to be removed
 
