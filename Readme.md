@@ -1,10 +1,13 @@
 # Solidity Smart Contract Examples
 
+Solidity smart contracts examples and Ethereum setup information for the Blockchains and Overlay Networks class at the University of Zurich. Repository forked from the [CSG official Repostory](https://github.com/Communication-Systems-Group/solidity-examples), thanks @tbocek :thumbsup:
+
 ## First steps
 Make sure you have [geth](https://www.ethereum.org/cli) and the [Solidity Compiler](http://solidity.readthedocs.io/en/develop/installing-solidity.html#binary-packages) installed in your computer. We are going to be using the geth console, so get familiar with it :)
 
 PS: all the commands in the repository were executed and tested in a Ubuntu 16.04 "xenial".
 
+## Version information
 Before geth 1.6, a Solidity file could be compiled from within geth. The file had to be prepared and newlines had to be removed
 
 ```
@@ -22,7 +25,7 @@ As reported [here](https://ethereum.stackexchange.com/questions/15435/how-to-com
  
 ## First Example
 
-The first example (example1.sol) is a very simple contract
+The first example (examples/example1.sol) is a very simple contract
 
 ```
 pragma solidity ^0.4.10;
@@ -41,7 +44,7 @@ geth --testnet attach http://127.0.0.1:8545
 run the deploy script deploy.sh
 
 ```
-./deploy.sh example1.sol
+./deploy.sh examples/example1.sol
 ```
 
 Now switch to the attached geth console and load the resulting script
