@@ -63,7 +63,7 @@ We are going to have two accounts. Both with password "123456", as we are in a p
 
 Start geth in one terminal
 ```
-$ geth --datadir ~/privateEthTestnet --fast --rpc --rpcapi eth,web3,personal,net,miner,admin
+$ geth --datadir ~/privateEthTestnet --networkid 3107 --fast --rpc --rpcapi eth,web3,personal,net,miner,admin
 ```
 
 Attach another instance of the geth console in another terminal
@@ -122,6 +122,10 @@ Once you have a couple of ethers you can stop the mining
 true
 ```
 
+### Important information
+
+* You must mine every transaction in your private test network.
+
 ## First Example
 
 The [first example](examples/example1.sol) is a very simple contract
@@ -137,8 +141,8 @@ contract Example1 {
 Make sure you have started geth before
 
 ```
-$ geth --testnet --fast --rpc --rpcapi eth,web3,personal,net,miner,admin
-$ geth --testnet attach http://127.0.0.1:8545
+$ geth --datadir ~/privateEthTestnet --fast --rpc --rpcapi eth,web3,personal,net,miner,admin
+$ geth attach http://127.0.0.1:8545
 ```
 run the deploy script deploy.sh
 
