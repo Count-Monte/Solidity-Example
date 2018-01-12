@@ -69,18 +69,19 @@ geth --datadir ~/privateEthTestnet --fast --rpc --rpcapi eth,web3,personal,net,m
 Attach another instance of the geth console in another terminal
 ```
 geth attach http://127.0.0.1:8545
-\> eth.accounts
+
+> eth.accounts
 []
-\> personal.newAccount()
+> personal.newAccount()
 Passphrase: 123456
 Repeat passphrase: 123456 
 "0x41e26b3c7...43dd30cfb11"
-\> personal.newAccount()
+> personal.newAccount()
 Passphrase: 123456
 Repeat passphrase: 123456
 "0x844268de3...c988eecc4f2"
-\> eth.accounts
- \["0x41e26b3c7...43dd30cfb11", "0x844268de3...c988eecc4f2" \]
+> eth.accounts
+["0x41e26b3c7...43dd30cfb11", "0x844268de3...c988eecc4f2"]
 ```
 
 Great! Now we have two accounts in the blockchain! Unfornatelly, they don't have ether yet, so let's mine a couple of ether.
