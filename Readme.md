@@ -23,9 +23,73 @@ echo "var testOutput=`solc --optimize --combined-json abi,bin,interface Test.sol
 
 As reported [here](https://ethereum.stackexchange.com/questions/15435/how-to-compile-solidity-contracts-with-geth-v1-6). The issue is reported [here](https://github.com/ethereum/go-ethereum/issues/3793). 
  
+## Setting up your private Ethereum testnet
+
+To allow the rapid development of smart contracts and not have to download the entire publci Ethereum testnet, we are going go to create a private testnet. The instructiosn were retrieved from [here](https://github.com/ethereum/go-ethereum/wiki/Private-network), so refer there for more information.
+
+### Creating the custom Data Directory
+
+The data directory is where all the information regarding the blockchain (including the blockchain) is going to be stored.
+```
+cd ~ 
+mkdir privateEthTestnet
+cd privateEthTestNet
+```
+### Creating the genesis block
+
+Copy the [genesisBlock.json](genesisBlock.json) file to the privateEthTestnet directory.
+```
+cp genesisBlock.json ~/privateEthTestnet/
+```
+
+### Creating the blockchain
+Now we create a database using the genesis block.
+
+```
+cd ~/privateEthTestNet/
+geth --datadir ~/privateEthTestnet/ init genesisBlock.json
+```
+
+If everything went fine you should see something like this
+```
+Writing custom genesis block
+Successfully wrote genesis state         database=lightchaindata                                   hash=ab944c…55600c
+```
+
+
+### Creating Accounts
+
+We are going to have two accounts. Both with password "123456", as we are in a private testnet we don't need strong passwords, but mind to use strong passwords in the real world ;)
+
+Start geth in one terminal
+```
+geth --datadir ~/privateEthTestnet --fast --rpc --rpcapi eth,web3,personal,net,miner,admin
+```
+
+Attach another instance of the geth console in another terminal
+```
+geth attach http://127.0.0.1:8545
+\> eth.accounts
+[]
+\> personal.newAccount()
+Passphrase: 123456
+Repeat passphrase: 123456 
+"0x41e26b3c7...43dd30cfb11"
+\> personal.newAccount()
+Passphrase: 123456
+Repeat passphrase: 123456
+"0x844268de3...c988eecc4f2"
+\> eth.accounts
+ \["0x41e26b3c7...43dd30cfb11", "0x844268de3...c988eecc4f2" \]
+```
+
+Great! Now we have two accounts in the blockchain! Unfornatelly, they don't have ether yet, so let's mine a couple of ether.
+
+### Mining some ether ⛏️
+
 ## First Example
 
-The first example (examples/example1.sol) is a very simple contract
+The [first example](examples/example1.sol) is a very simple contract
 
 ```
 pragma solidity ^0.4.10;
