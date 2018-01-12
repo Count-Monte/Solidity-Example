@@ -1,7 +1,7 @@
 pragma solidity ^0.4.10;
 
 //the very 8th example
-contract SimpleMegasena {
+contract Example8 {
 
     address owner;
     mapping (address => uint) accounts;
@@ -11,8 +11,8 @@ contract SimpleMegasena {
         address indexed _from
     );
 
-    function SimpleMegasena() {
-        owner = msg.sender; //owner do contrato, ver isso se isso funciona depois
+    function Example8() {
+        owner = msg.sender;
     }
 
     function amIowner() public constant returns (string) {

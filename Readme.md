@@ -100,7 +100,7 @@ Start the miner with 4 threads
 null
 ```
 
-You should see some CPU activity and in the other geth console something like this.
+You should see some CPU activity and in the other geth console something like this:
 ```
 INFO Commit new mining work                   number=1 txs=0 uncles=0 elapsed=225.785µs
 INFO Generating DAG in progress               epoch=0 percentage=80 elapsed=2m4.249s
