@@ -165,4 +165,50 @@ You have mined you first contract!
 
 ## Example 2
 
-Now we'll store a state and access the state 
+Now we'll store a state and access the state.
+
+Deploy the contract by running (you have to do this by every new contract.
+
+```
+$ ./deploy.sh examples/example2.sol
+```
+
+Now switch to the attached geth console and load the resulting script
+
+```
+> loadScript("/tmp/test.js")
+```
+
+Once the contract has been mined you can interact with it
+```
+> test.push("someString")
+```
+
+If you see something like this
+```
+Error: invalid address
+```
+Set the default account of the wallet and try the push command again
+```
+> eth.defaultAccount=eth.accounts[0]
+"0x41e26b3c7b...420000ae9643dd30cfb11"
+> test.push("someString")
+"0x58fbadf2567f43aa443623d5c237dbcaa387b01757c84586251f035e12f323ee"
+```
+
+Now we can retrieve the value:
+```
+> test.get(0)
+"someString"
+```
+
+## Example 3
+
+
+
+
+
+
+
+
+

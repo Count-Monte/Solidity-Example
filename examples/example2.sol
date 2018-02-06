@@ -7,14 +7,18 @@ contract Example2 {
 		uint amount; //default is 256bits
 	}
 
-	uint counter;
+	uint counter=0;
 	mapping (uint => Account) accounts;
 
-    function Example2(string addr) {
-        accounts[counter++] = Account(addr, 42);
+    function push(string addr) public {
+        accounts[counter] = Account(addr, 42);
+		counter++;
     }
 
-    function get(uint nr) constant returns (string) {
+    function get(uint nr) public constant returns (string) {
         return accounts[nr].addr;
+    }
+    function getCounter() public constant returns (uint) {
+        return counter;
     }
 }
