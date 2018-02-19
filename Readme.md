@@ -25,7 +25,7 @@ As reported [here](https://ethereum.stackexchange.com/questions/15435/how-to-com
  
 ## Setting up your private Ethereum testnet
 
-To allow the rapid development of smart contracts and not have to download the entire publci Ethereum testnet, we are going go to create a private testnet. The instructiosn were retrieved from [here](https://github.com/ethereum/go-ethereum/wiki/Private-network), so refer there for more information.
+To allow the rapid development of smart contracts and not have to download the entire public Ethereum testnet, we are going go to create a private testnet. The instructions were retrieved from [here](https://github.com/ethereum/go-ethereum/wiki/Private-network), so refer there for more information.
 
 ### Creating the custom Data Directory
 
