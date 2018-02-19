@@ -163,7 +163,7 @@ Contract mined! address: 0xfb821bf9e66a5decb43a92fc615bbbdb296df462 transactionH
 
 You have mined you first contract!
 
-## Example 2
+## [Example 2](examples/example2.sol)
 
 Now we'll store a state and access the state.
 
@@ -202,7 +202,7 @@ Now we can retrieve the value:
 "someString"
 ```
 
-## Example 3
+## [Example 3](examples/example3.sol)
 
 In the third example we are going to work with structs.
 This contract has a struct named "Account" that stores an address and an amount. Calling the function Example3(<address>) creates an entry in the accounts list and sets the owner of the contract to be the address that called the function.
@@ -230,7 +230,7 @@ Now if we call the ``getAmount`` function we can see the amount of the second ad
 42
 ```
 
-## Example 4
+## [Example 4](examples/example4.sol)
 
 This example introduces the concept of Events in Solidity. Events are signals that the smart contract can issue and applications can listen to these events.
 To implement an application that listens/watches to a specific Event of a contract, please refer to [this brief course](https://coursetro.com/posts/code/100/Solidity-Events-Tutorial---Using-Web3.js-to-Listen-for-Smart-Contract-Events). 
@@ -255,7 +255,7 @@ Regarding the Example 4, everytime the function ``set`` is called, if the sender
     }
 ```
 
-## Example 5
+## [Example 5](examples/example5.sol)
 
 In this example we are going to store some amount of Ethers in the smart contrat and we will be able to withdraw an arbitrary amount from our account.
 We can deposit an amount of ether by calling the deposit function, note that the value is in Wei not Ether (see [EtherConverter.online](https://etherconverter.online/)):
@@ -272,6 +272,9 @@ true
 > test.balance()
 500000000000000000
 ```
+
+## [Example 6](examples/example6.sol)
+
 
 
 
