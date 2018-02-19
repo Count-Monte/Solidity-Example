@@ -13,11 +13,13 @@ contract Example5 {
         accounts[msg.sender] += msg.value;
         Message("deposit!");
     }
-
+	function balance() returns (uint) {
+        return accounts[msg.sender];
+	}
     function withdraw(uint amount) returns (bool){
         if(accounts[msg.sender] >= amount) {
             accounts[msg.sender]-= amount;
-            if(msg.sender.send(amount)) {
+            if(msg.sender.transfer(amount)) {
                 Message("withdraw!");
                 return true;
             }

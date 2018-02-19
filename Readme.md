@@ -204,9 +204,74 @@ Now we can retrieve the value:
 
 ## Example 3
 
+In the third example we are going to work with structs.
+This contract has a struct named "Account" that stores an address and an amount. Calling the function Example3(<address>) creates an entry in the accounts list and sets the owner of the contract to be the address that called the function.
+```
+> test.Example3(eth.accounts[0])
+```
 
+If we call the ``get`` function passing as argument 1 we should get the address that was stored in the function Example3:
+```
+> test.get(1)
+"0x41e26b3c7b...420000ae9643dd30cfb11"
+```
 
+We can also create entries to new addresses and specify the amount that the address will have. This function contains a condition that specify that only the owner of the contract (i.e., the address that called the Example3 function) can create new entries and amounts.
+```
+> test.set(66, eth.accounts[1])
+true
+```
 
+Now if we call the ``getAmount`` function we can see the amount of the second address in the accounts list.
+```
+> test.getAmount(2) #second account
+66
+> test.getAmount(1) #first account
+42
+```
+
+## Example 4
+
+This example introduces the concept of Events in Solidity. Events are signals that the smart contract can issue and applications can listen to these events.
+To implement an application that listens/watches to a specific Event of a contract, please refer to [this brief course](https://coursetro.com/posts/code/100/Solidity-Events-Tutorial---Using-Web3.js-to-Listen-for-Smart-Contract-Events). 
+Events are important when implementing Distributed Applications based on Solidity.
+
+Regarding the Example 4, everytime the function ``set`` is called, if the sender of the message is the owner of the contract, then an event of the type Message is called.
+```
+	event Message(
+        string msg
+    );
+    .
+    .
+    .
+    function set(uint nr, string addr) returns (bool) {
+	if(owner == msg.sender) {
+            accounts[counter++] = Account(addr, nr);
+            Message("all set!");
+            return true;
+        } else {
+            return false;
+        }
+    }
+```
+
+## Example 5
+
+In this example we are going to store some amount of Ethers in the smart contrat and we will be able to withdraw an arbitrary amount from our account.
+We can deposit an amount of ether by calling the deposit function, note that the value is in Wei not Ether (see [EtherConverter.online](https://etherconverter.online/)):
+```
+> test.deposit({from: eth.accounts[0], value: web3.toWei(1,"ether")})
+> test.balance()
+1000000000000000000
+```
+
+Now that we have some amount deposit in the smart contract, we can withdraw a specyfic amount:
+```
+> test.withdraw(web3.toWei(0.5,"ether"))
+true
+> test.balance()
+500000000000000000
+```
 
 
 

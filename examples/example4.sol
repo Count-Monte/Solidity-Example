@@ -24,6 +24,9 @@ contract Example4 {
     function get(uint nr) constant returns (string) {
         return accounts[nr].addr;
     }
+    function getAmount(uint nr) constant returns (string) {
+        return accounts[nr].amount;
+    }
 
     function set(uint nr, string addr) returns (bool) {
         if(owner == msg.sender) {

@@ -7,7 +7,7 @@ contract Example3 {
         uint amount; //default is 256bits
     }
 
-    uint counter;
+    uint counter=0;
     mapping (uint => Account) accounts;
     address owner;
 
@@ -18,6 +18,10 @@ contract Example3 {
 
     function get(uint nr) constant returns (string) {
         return accounts[nr].addr;
+    }
+    
+    function getAmount(uint nr) constant returns (uint) {
+        return accounts[nr].amount;
     }
 
     function set(uint nr, string addr) returns (bool) {
