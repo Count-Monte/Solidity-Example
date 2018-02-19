@@ -84,7 +84,7 @@ Repeat passphrase: 123456
 ["0x41e26b3c7...43dd30cfb11", "0x844268de3...c988eecc4f2"]
 ```
 
-Great! Now we have two accounts in the blockchain! Unfornatelly, they don't have ether yet, so let's mine a couple of ether.
+Great! Now we have two accounts in the blockchain! unfortunately, they don't have ether yet, so let's mine a couple of ether.
 
 ### Mining some ether ⛏️
 
