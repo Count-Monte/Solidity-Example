@@ -122,7 +122,7 @@ Once you have a couple of ethers you can stop the mining
 true
 ```
 
-### Important information
+### :warning: Important information :warning:
 
 * You must mine every transaction in your private test network.
 
