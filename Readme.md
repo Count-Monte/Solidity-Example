@@ -207,10 +207,13 @@ Now we can retrieve the value:
 ## [Example 3](examples/example3.sol)
 
 In the third example we are going to work with structs.
-This contract has a struct named "Account" that stores an address and an amount. Calling the function Example3(<address>) creates an entry in the accounts list and sets the owner of the contract to be the address that called the function.
+This contract has a struct named "Account" that stores an address and an amount. Calling the function creates(address) creates an entry in the accounts list and sets the owner of the contract to be the address that called the function.
+
 ```
-> test.Example3(eth.accounts[0])
+> test.create(eth.accounts[0],{gas:2100000})
 ```
+:warning: Every transaction that modifies a state in the Smart Contract consumes what Ethereum calls "gas", so that is the reason why we pass as argument an amount of "gas". This amount, in wei, is deducted from your account, and if the function does not consume all the gas, the difference will be returned. If you specify too little gas, the function will not run. Thus, if your function does not run, maybe you need to specify more gas when calling the function.
+Refer [here](http://ethdocs.org/en/latest/contracts-and-transactions/account-types-gas-and-transactions.html) for more information about gas and gas price.
 
 If we call the ``get`` function passing as argument 1 we should get the address that was stored in the function Example3:
 ```
@@ -220,7 +223,7 @@ If we call the ``get`` function passing as argument 1 we should get the address 
 
 We can also create entries to new addresses and specify the amount that the address will have. This function contains a condition that specify that only the owner of the contract (i.e., the address that called the Example3 function) can create new entries and amounts.
 ```
-> test.set(66, eth.accounts[1])
+> test.set(66, eth.accounts[1],{gas:2100000})
 true
 ```
 
@@ -273,6 +276,10 @@ Now that we have some amount deposit in the smart contract, we can withdraw a sp
 true
 > test.balance()
 500000000000000000
+> test.withdraw(web3.toWei(0.5,"ether"))
+true
+> test.balance()
+0
 ```
 
 ## [Example 6](examples/example6.sol)

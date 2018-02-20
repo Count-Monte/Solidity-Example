@@ -7,11 +7,11 @@ contract Example3 {
         uint amount; //default is 256bits
     }
 
-    uint counter=0;
+    uint counter=1;
     mapping (uint => Account) accounts;
     address owner;
 
-    function Example3(string addr) {
+    function create(string addr) {
         accounts[counter++] = Account(addr, 42);
         owner = msg.sender;
     }
