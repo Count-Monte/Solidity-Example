@@ -2,6 +2,8 @@
 
 Solidity smart contracts examples and Ethereum setup information for the Blockchains and Overlay Networks class at the University of Zurich. Repository forked from the [CSG official Repostory](https://github.com/Communication-Systems-Group/solidity-examples), thanks @tbocek :thumbsup:
 
+[Click here](https://solidity.readthedocs.io/en/develop/) for the full Solidity Documentation.
+
 ## First steps
 Make sure you have [geth](https://www.ethereum.org/cli) and the [Solidity Compiler](http://solidity.readthedocs.io/en/develop/installing-solidity.html#binary-packages) installed in your computer. We are going to be using the geth console, so get familiar with it :smiley:
 
@@ -265,7 +267,7 @@ We can deposit an amount of ether by calling the deposit function, note that the
 1000000000000000000
 ```
 
-Now that we have some amount deposit in the smart contract, we can withdraw a specyfic amount:
+Now that we have some amount deposit in the smart contract, we can withdraw a specific amount:
 ```
 > test.withdraw(web3.toWei(0.5,"ether"))
 true
