@@ -169,7 +169,7 @@ You have mined you first contract!
 
 Now we'll store a state and access the state.
 
-Deploy the contract by running (you have to do this by every new contract.
+Deploy the contract by running (you have to do this to every new contract):
 
 ```
 $ ./deploy.sh examples/example2.sol
@@ -283,6 +283,16 @@ true
 ```
 
 ## [Example 6](examples/example6.sol)
+
+You tell me, what do you think that this contract is implementing?
+
+## [Example 7](examples/example7.sol)
+
+How about this one?
+
+## [Example 8](examples/example8.sol)
+
+This contract implements a contract where you can send the content of a file, which will be hashed and stored in the Smart Contract with your address as the owner of the file. Thus, if someone wants to store the same file, it will not be able to store it because the hash of the file's content is already registered to a address.
 
 
 
