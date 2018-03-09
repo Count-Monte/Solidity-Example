@@ -3,6 +3,7 @@
 Solidity smart contracts examples and Ethereum setup information for the Blockchains and Overlay Networks class at the University of Zurich. Repository forked from the [CSG official Repostory](https://github.com/Communication-Systems-Group/solidity-examples), thanks @tbocek :thumbsup:
 
 [Click here](https://solidity.readthedocs.io/en/develop/) for the full Solidity Documentation.
+
 [Click here](https://www.youtube.com/watch?v=F_l4HycnHAIa) for a video explaining the Application Binary Interface (ABI) of Ethereum Smart Contracts (Useful for interacting with the Smart Contract)
 
 ## First steps
