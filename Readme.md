@@ -9,7 +9,8 @@ Solidity smart contracts examples and Ethereum setup information for the Blockch
 ## First steps
 Make sure you have [geth](https://www.ethereum.org/cli) and the [Solidity Compiler](http://solidity.readthedocs.io/en/develop/installing-solidity.html#binary-packages) installed in your computer. We are going to be using the geth console, so get familiar with it :smiley:
 
-PS: all the commands in the repository were executed and tested in a Ubuntu 16.04 "xenial".
+PS: All the commands in the repository were executed and tested in a Ubuntu 16.04 "xenial". 
+PS2: You can create a Virtual Machine (VM) using [Virtual Box](https://www.virtualbox.org/wiki/Downloads) and install [Ubuntu 16.04](https://www.ubuntu.com/download/desktop) if you don't want to change any boot configuration in your PC. For a tutorial on how to perfom the install refer [here](https://www.lifewire.com/run-ubuntu-within-windows-virtualbox-2202098).
 
 ## Version information
 Before geth 1.6, a Solidity file could be compiled from within geth. The file had to be prepared and newlines had to be removed
