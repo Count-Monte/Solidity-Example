@@ -31,7 +31,7 @@ contract Example4 {
     function set(uint nr, string addr) returns (bool) {
         if(owner == msg.sender) {
             accounts[counter++] = Account(addr, nr);
-            Message("all set!");
+            Message("all set!"); //raises the event "Message"
             return true;
         } else {
             return false;

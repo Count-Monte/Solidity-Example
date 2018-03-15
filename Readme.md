@@ -130,7 +130,13 @@ true
 
 ### :warning: Important information :warning:
 
-* You must mine every transaction in your private test network.
+* You must mine every transaction in your private test network. 
+
+Thus, it is good to always leave the miner running:
+```
+> miner.start(2)
+true
+```
 
 ## First Example
 
