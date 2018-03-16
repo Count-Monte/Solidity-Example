@@ -24,7 +24,7 @@ contract Example4 {
     function get(uint nr) constant returns (string) {
         return accounts[nr].addr;
     }
-    function getAmount(uint nr) constant returns (string) {
+    function getAmount(uint nr) constant returns (uint) {
         return accounts[nr].amount;
     }
 
