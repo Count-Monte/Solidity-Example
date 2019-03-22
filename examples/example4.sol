@@ -1,4 +1,4 @@
-pragma solidity ^0.4.10;
+pragma solidity >0.4.10;
 
 //the very fourth example
 contract Example4 {
@@ -14,24 +14,27 @@ contract Example4 {
 
     uint counter=1;
     mapping (uint => Account) accounts;
-    address owner;
+    address public owner;
 
-    function create(string addr) {
+    constructor() public {
+        owner = msg.sender;
+    }
+    function create(string memory addr) public {
         accounts[counter++] = Account(addr, 42);
         owner = msg.sender;
     }
 
-    function get(uint nr) constant returns (string) {
+    function get(uint nr) public view returns (string memory) {
         return accounts[nr].addr;
     }
-    function getAmount(uint nr) constant returns (uint) {
+    function getAmount(uint nr) public view returns (uint) {
         return accounts[nr].amount;
     }
 
-    function set(uint nr, string addr) returns (bool) {
+    function set(uint nr, string memory addr) public returns (bool) {
         if(owner == msg.sender) {
             accounts[counter++] = Account(addr, nr);
-            Message("all set!"); //raises the event "Message"
+            emit Message("all set!"); //raises the event "Message"
             return true;
         } else {
             return false;

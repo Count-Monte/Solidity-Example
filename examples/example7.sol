@@ -1,4 +1,4 @@
-pragma solidity ^0.4.10;
+pragma solidity >0.4.10;
 
 //the very seventh example
 contract Example7 {
@@ -6,24 +6,24 @@ contract Example7 {
     address owner;
     mapping (address => uint) accounts;
 
-    function Example7() {
+    constructor() public {
         owner = msg.sender;
     }
 
-    function mint(address recipient, uint value) {
+    function mint(address recipient, uint value) public {
         if(msg.sender == owner) {
             accounts[recipient] += value;
         }
     }
 
-    function transfer(address to, uint value) {
+    function transfer(address to, uint value)  public{
         if(accounts[msg.sender] >= value) {
             accounts[msg.sender] -= value;
             accounts[to] += value;
         }
     }
 
-    function balance(address addr) constant returns (uint) {
+    function balance(address addr) public view returns (uint) {
         return accounts[addr];
     }
 }

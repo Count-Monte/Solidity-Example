@@ -1,4 +1,4 @@
-pragma solidity ^0.4.10;
+pragma solidity >0.4.10;
 
 
 //the very 8th example
@@ -20,11 +20,11 @@ contract Example8 {
     mapping (uint => bytes32) public hashList; //every file hashed will belong to a address using the data type 32 bytes, size of a sha256 hash. 
     uint public documentCount = 0;
 
-    function Example8() {
+    constructor() public {
         owner = msg.sender;
     }
 
-    function amIMaster() public view returns (string) {
+    function amIMaster() public view returns (string memory) {
         if (msg.sender == owner) {
             return "Yes, master";
         }
@@ -34,38 +34,38 @@ contract Example8 {
         return msg.sender.balance;
     }
 
-    function amIOwner(string file) public view returns (bool) {
-        var fileHash = sha256(file);
+    function amIOwner(string memory file) public view returns (bool) {
+        bytes32 fileHash = keccak256(abi.encodePacked(file));
 
         if (msg.sender == documents[fileHash].ownerAddress) {
             return true;
         }
         return false;
     }
-    function getHash(string file) public pure returns (bytes32) {
-        return sha256(file);
+    function getHash(string memory file) public pure returns (bytes32) {
+        return keccak256(abi.encodePacked(file));
     }
 
-    function changeOwner(string file,address newOwner) public returns (bool) {
+    function changeOwner(string memory file,address newOwner) public returns (bool) {
         if (amIOwner(file)) {
-             var fileHash = sha256(file);
+             bytes32 fileHash = keccak256(abi.encodePacked(file));
              documents[fileHash].ownerAddress = newOwner;
              documents[fileHash].modified = now;
-             Stored();
+             emit Stored();
              return true;
         }
         return false;
     }
 
-    function store(string file,string name) public returns (bytes32) {
-        var fileHash = sha256(file);
+    function store(string memory file,string memory name) public returns (bytes32) {
+        bytes32 fileHash = keccak256(abi.encodePacked(file));
         if (documents[fileHash].ownerAddress == 0x0000000000000000000000000000000000000000) {
             documents[fileHash].ownerAddress = msg.sender;  //can save
             documents[fileHash].name = name;
             documents[fileHash].timestamp = now;
             hashList[documentCount] = fileHash;
             documentCount += 1;
-            Stored();
+            emit Stored();
             return fileHash;
         }
     }
@@ -74,9 +74,8 @@ contract Example8 {
         return documentCount;
     }
 
-    function getDocument(uint index) public view returns (bytes32 fileHash, address ownerAddress, string name, uint256 timestamp) {
-        if (index > documentCount)
-            return;
+    function getDocument(uint index) public view returns (bytes32 fileHash, address ownerAddress, string memory name, uint256 timestamp) {
+        require(index > documentCount);
 
         fileHash = hashList[index];
         ownerAddress = documents[fileHash].ownerAddress;
@@ -85,7 +84,7 @@ contract Example8 {
 
     }
 
-    function hasOwner(string file) public view returns (address) {
-        return documents[sha256(file)].ownerAddress;
+    function hasOwner(string memory file) public view returns (address) {
+        return documents[keccak256(abi.encodePacked(file))].ownerAddress;
     }
 }
